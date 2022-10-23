@@ -1,5 +1,5 @@
 
-const userRoutes = (app) => {
+/*const userRoutes = (app) => {
     app.get('/usuario', (req, res) => {
         console.log(req.query)
         res.send(req.query.name)
@@ -15,4 +15,15 @@ const userRoutes = (app) => {
     })
 }
 
-export default userRoutes
+module.exports = userRoutes;*/
+
+//TRECHO DE CÓDIGO ACIMA CRIADO NA MENTORIA COMO UMA OUTRA FORMA DE REALIZAR
+
+const express = require("express");
+const router = express.Router();
+
+const controller = require("../controllers/userController");
+
+router.get("/all", controller.getAll);
+
+module.exports = router;

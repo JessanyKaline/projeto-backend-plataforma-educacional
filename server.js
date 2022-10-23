@@ -1,12 +1,13 @@
-import app from "./src/app.js"
-import userRoutes from "./src/routes/userRoutes.js"
-const port = 8080
 
-userRoutes(app)
+const app = require('./src/app')
+//const PORT = 8080;
+const PORT = process.env.PORT;
 
-app.listen(port, ()=> console.log(`Servidor iniciado na porta ${port}`))
+//userRoutes(app)
 
-app.get('/', (req, res) =>{
+app.listen(PORT, ()=> console.log(`Servidor iniciado na porta ${PORT}`))
+
+/*app.get('/', (req, res) =>{
     res.send("hello")
-})
+})*/
 
