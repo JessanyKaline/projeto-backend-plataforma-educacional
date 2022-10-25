@@ -10,7 +10,6 @@ const cors = require("cors");
 //app.use(cors()); - PROVAVELMENTE USAREMOS ESSES DOIS TRECHOS
 //app.use(express.json())
 
-require('dotenv-safe').config(); 
 
 const db = require('./config/database');
 const userRoutes = require('./routes/userRoutes'); //Glauber - Faltou essa linha de codigo.
