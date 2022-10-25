@@ -1,4 +1,4 @@
-require('dotenv').config(); //Mudei com a tutoria do Everton, tive que acrescentar aqui pra rodar na minha máquina
+require('dotenv-safe').config(); //Mudei com a tutoria do Everton, tive que acrescentar aqui pra rodar na minha máquina
 
 
 
