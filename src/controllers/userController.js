@@ -57,8 +57,28 @@ const updateUserById = async (req, res) => {
   }
 }
 
+const deleteUserById= async (req, res) => {
+  try {
+      const userFound = await UserSchema.findById(req.params.id)
+
+      await userFound.delete()
+
+      const savedUser = await findUser.save()
+
+      res.status(200).json({
+          message: `Usuário '${userFound.email} deletado com sucesso!`
+    
+      })
+
+  } catch (error) {
+      console.error(error)
+  }
+}
+
 module.exports = {
   getAll,
   createUser, //Glauber
-  updateUserById //Glauber
+  updateUserById, //Glauber
+  deleteUserById, //Jessany
+
 };

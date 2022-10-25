@@ -27,5 +27,6 @@ const controller = require("../controllers/userController");
 router.get("/all", controller.getAll);
 router.post("/create", controller.createUser);//Glauber
 router.patch("/update/:id", controller.updateUserById);//Glauber
+router.delete("/delete", controller.deleteUserById); //Jessany
 
 module.exports = router;
