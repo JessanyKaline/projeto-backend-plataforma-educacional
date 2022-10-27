@@ -23,9 +23,12 @@ const express = require("express");
 const router = express.Router();
 
 const controller = require("../controllers/userController");
+const authController = require("../controllers/authController"); //Jessany
+
 
 router.get("/all", controller.getAll);
 router.post("/create", controller.createUser);//Glauber
+router.post("/login", authController.login); //Jessany
 router.patch("/update/:id", controller.updateUserById);//Glauber
 router.delete("/delete", controller.deleteUserById); //Jessany
 
