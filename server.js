@@ -1,5 +1,6 @@
-require('dotenv-safe').config(); //Mudei com a tutoria do Everton, tive que acrescentar aqui pra rodar na minha máquina
+//require('dotenv-safe').config(); //Mudei com a tutoria do Everton, tive que acrescentar aqui pra rodar na minha máquina
 
+//JESSANY ------>>>> Eu comentei acima o dotenv, porque a Paula fala sobre ele no final da aula... Eu inseri ja no app.js. VERIFICA SE NA SUA MAQUINA VAI FUNCIONAR DESSA FORMA.
 
 
 const app = require('./src/app')

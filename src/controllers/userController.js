@@ -1,8 +1,33 @@
 const UserSchema = require("../models/userSchema");
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');//Glauber - Necessário importar para validar o token
+
+//SECRET copiado do authController
+//SECRET adicionado na variavel no .env
+/*const SECRET = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCExyOHwYTIciXCPQI3kyQYtM6JJZv1laf9kCrfSTZdlfdR5iD/WeF6zKnTx69YXZjQsBLSdCRdFjmGrdBBMXVNEEO/zbK0YFNiUxnhkoDIVBkgZjexW6hiHqk+r2z8Kw+fJPwsENkfR7dmDZt+ef0pywKwDZZEadwfsQAwDoHMmQIDAQAB"*/
+const SECRET = process.env.SECRET
+
 
 //CRUD
 const getAll = async (req, res) => {
+  //Trecho de autenticação de login criado por Glauber:
+  const authHeader = req.get('authorization') //Ve se chega algo no HEADER
+  //console.log("HEADER", authHeader)
+  const token = authHeader.split(' ')[1]; //Acesso o token
+  //console.log("TOKEN", token)
+
+  //Verifico se o TOKEN existe
+  if(!token) {
+    return res.status(401).send("Erro no header")
+  }
+
+  //Para validar o token (jsonwebtoken) e visualizar as informações:
+  jwt.verify(token, SECRET, (err) => {
+    if(err) {
+      return res.status(401).send("Não Autorizado")
+    }
+  })
+
   UserSchema.find(function (err, users) {
     if(err) {
       res.status(500).send({ message: err.message })

@@ -6,14 +6,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+require('dotenv-safe').config(); //Deixei o dotenv aqui, conforme orientação na aula da Paula. GLAUBER
 
 const db = require('./config/database');
-const userRoutes = require('./routes/userRoutes'); //Glauber - Faltou essa linha de codigo.
+const userRoutes = require('./routes/userRoutes'); //Glauber
+
 db.connect();
 
-
-
-//GLAUBER: Inseri aqui os app.use:
+//GLAUBER: Inseri os app.use:
 app.use(cors());
 app.use(express.json());
 app.use("/users", userRoutes);

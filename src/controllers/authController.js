@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken');//Jessany
 
 //Código abaixo criado por Jessany 
 
-const SECRET = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCExyOHwYTIciXCPQI3kyQYtM6JJZv1laf9kCrfSTZdlfdR5iD/WeF6zKnTx69YXZjQsBLSdCRdFjmGrdBBMXVNEEO/zbK0YFNiUxnhkoDIVBkgZjexW6hiHqk+r2z8Kw+fJPwsENkfR7dmDZt+ef0pywKwDZZEadwfsQAwDoHMmQIDAQAB"
+/*const SECRET = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCExyOHwYTIciXCPQI3kyQYtM6JJZv1laf9kCrfSTZdlfdR5iD/WeF6zKnTx69YXZjQsBLSdCRdFjmGrdBBMXVNEEO/zbK0YFNiUxnhkoDIVBkgZjexW6hiHqk+r2z8Kw+fJPwsENkfR7dmDZt+ef0pywKwDZZEadwfsQAwDoHMmQIDAQAB"*/
+const SECRET = process.env.SECRET
 
 const login = (req, res) => {
     try {
