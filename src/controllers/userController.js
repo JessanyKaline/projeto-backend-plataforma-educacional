@@ -82,28 +82,27 @@ const updateUserById = async (req, res) => {
   }
 }
 
-const deleteUserById= async (req, res) => {
-  try {
-      const userFound = await UserSchema.findById(req.params.id)
+const deleteUserById = async (req, res) => {
+    try {
+        const userFound = await UserSchema.findById(req.params.id)
 
-      await userFound.delete()
+       await userFound.delete()
 
-      const savedUser = await findUser.save()
+       res.status(200).json({
+           mensagem: `Usuário ${userFound.email} deletado com sucesso!`
+       })
 
-      res.status(200).json({
-          message: `Usuário '${userFound.email} deletado com sucesso!`
-    
-      })
+    } catch (err) {
+        res.status(400).json({
+            mensagem: err.message
+        })
+    }
+} 
 
-  } catch (error) {
-      console.error(error)
-  }
-}
 
 module.exports = {
   getAll,
   createUser, //Glauber
   updateUserById, //Glauber
-  deleteUserById, //Jessany
-
+  deleteUserById //Jessany
 };

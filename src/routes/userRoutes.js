@@ -30,6 +30,6 @@ router.get("/all", controller.getAll);
 router.post("/create", controller.createUser);//Glauber
 router.post("/login", authController.login); //Jessany
 router.patch("/update/:id", controller.updateUserById);//Glauber
-router.delete("/delete", controller.deleteUserById); //Jessany
+router.delete("/delete/:id", controller.deleteUserById); //Jessany
 
 module.exports = router;
